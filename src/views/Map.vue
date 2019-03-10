@@ -56,20 +56,20 @@ export default {
         // console.log(image)
 
         // var image_url = 'http://localhost:8000/stores/mapimage/${this.group}/${this.name}'
-        var image = draw.image('http://localhost:8000/stores/mapimage/'+group+'/'+name).loaded(function(loader) {
+        var image = draw.image('http://178.128.24.70:8000/stores/mapimage/'+group+'/'+name).loaded(function(loader) {
             this.size(loader.width, loader.height)
             // console.log(this.width())
             // console.log(this.height())
         })
 
-        this.$http.get('http://localhost:8000/stores/mappoint/'+group+'/'+name)
+        this.$http.get('http://178.128.24.70:8000/stores/mappoint/'+group+'/'+name)
         .then(response => {
             console.log(response.data)
             // draw point
             var data = response.data
             this.points = data
 
-            this.$http.get('http://localhost:8000/stores/'+group+'/'+name+'/route/'+this.items_string)
+            this.$http.get('http://178.128.24.70:8000/stores/'+group+'/'+name+'/route/'+this.items_string)
             .then(response => {
                 // console.log(response.data)
 
@@ -97,7 +97,7 @@ export default {
                 // console.log(path_point)
 
                 var keys = this.items_string.split(';')
-                this.$http.get('http://localhost:8000/stores/'+group+'/'+name)
+                this.$http.get('http://178.128.24.70:8000/stores/'+group+'/'+name)
                 .then(response => {
                     console.log('AAAAAAA')
                     console.log(response.data)
